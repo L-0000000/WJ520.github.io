@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我们的小窝</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .shell {
+            width: 100%;
+            position: relative;
+            padding: 80px 0;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .shell:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(99, 99, 99, 0.8);
+            content: "";
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .title {
+            color: #fff;
+            font-size: 46px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .timeline {
+            display: flex;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            flex-direction: column;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .content-title {
+            font-weight: normal;
+            font-size: 46px;
+            margin: -10px 0 0 0;
+            transition: 0.4s;
+            padding: 0 10px;
+            box-sizing: border-box;
+            color: #fff;
+        }
+
+        .content-desc {
+            margin: 0;
+            font-size: 15px;
+            box-sizing: border-box;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 25px;
+        }
+
+        .timeline:before {
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            margin-left: -1px;
+            content: "";
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .item {
+            padding: 40px 0;
+            opacity: 0.3;
+            filter: blur(2px);
+            transition: 0.5s;
+            box-sizing: border-box;
+            width: calc(50% - 40px);
+            display: flex;
+            position: relative;
+            transform: translateY(-80px);
+        }
+
+        .item:before {
+            /* 设置在伪元素before中的内容  */
+            content: attr(data-text);
+            letter-spacing: 3px;
+            width: 100%;
+            position: absolute;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            border-left: 2px solid rgba(255, 255, 255, 0.5);
+            top: 70%;
+            margin-top: -5px;
+            padding-left: 15px;
+            opacity: 0;
+            right: calc(-100% - 56px);
+            font: 900 20px '';
+            letter-spacing: 5px;
+        }
+
+        .item:nth-child(even) {
+            align-self: flex-end;
+        }
+
+        .item:nth-child(even):before {
+            right: auto;
+            text-align: right;
+            left: calc(-100% - 56px);
+            padding-left: 0;
+            border-left: none;
+            border-right: 2px solid rgba(255, 255, 255, 0.5);
+            padding-right: 15px;
+        }
+
+        .item--active {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0px);
+        }
+
+        .item--active:before {
+            top: 50%;
+            transition: 0.3s all 0.2s;
+            opacity: 1;
+        }
+
+        .item--active .content-title {
+            margin: -50px 0 20px 0;
+        }
+
+        .img {
+            max-width: 100%;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 16px;
+            letter-spacing: 5px;
+            margin: 10px 0 0 0;
+            font-weight: normal;
+        }
+
+        .footer {
+            padding: 95px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            font-size:25px;
+            color: #ef0606;
+            display: inline-block;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .item {
+                align-self: baseline !important;
+                width: 100%;
+                padding: 0 30px 150px 80px;
+            }
+
+            .item:before {
+                left: 10px !important;
+                padding: 0 !important;
+                top: 50px;
+                text-align: center !important;
+                width: 60px;
+                border: none !important;
+            }
+
+            .item:last-child {
+                padding-bottom: 40px;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            .timeline:before {
+                left: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="shell" id="shell">
+        <div class="header">
+            <h2 class="title"><a href="./星空.html">吴美女时光相册</a></h2>
+            <h3 class="subtitle"><a href="./shu/3Dpicture/index.html">I Love You</a></h3>
+            <br>
+                <!-- 自动循环播放音乐（谷歌浏览器内核除外） -->
+    <audio src="./多远都要在一起.mp3" autoplay="autoplay" loop="loop" controls="controls"></audio>
+        </div>
+        <div class="timeline">
+            <div class="item" data-t`ext="《美！美！美！》">
+                <div class="content">
+                    <img class="img" src="./img/0.jpg" />
+                    <h2 class="content-title">美丽</h2>
+                    <p class="content-desc">
+                        你要做一个不动声色的大人了。不准情绪化，不准偷偷想念，不准回头看。去过自己想要的生活。你要听话，知道吗？我的宝贝。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《童心未泯，天真长存》">
+                <div class="content">
+                    <img class="img" src="./img/2.jpeg" />
+                    <h2 class="content-title">憨憨</h2>
+                    <p class="content-desc">
+                        如果你停止，就是谷底。如果你还在继续，
+                        就是上坡。这是关于人生低谷最好的阐述。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《王之蔑视》">
+                <div class="content">
+                    <img class="img" src="./img/3.jpg" />
+                    <h2 class="content-title">心动</h2>
+                    <p class="content-desc">
+                        如果时光可以倒流，我还是会选择认识你，虽然会伤痕累累，但是心中的温暖记忆是谁都无法给予的。我谢谢你，我爱你。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《红玫瑰与白玫瑰》">
+                <div class="content">
+                    <img class="img" src="./img/04.jpg" />
+                    <h2 class="content-title">想亲</h2>
+                    <p class="content-desc">
+                        活出自己的喜欢的样子，为了自己的目标努力，我希望你可以现在这样子，自信，可爱，有活力！
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《小王子》">
+                <div class="content">
+                    <img class="img" src="./img/05.jpg" />
+                    <h2 class="content-title">傻妞</h2>
+                    <p class="content-desc">
+                        如果你爱上了某个星球的一朵花。那么，只要在夜晚仰望星空，就会觉得漫天的繁星就像一朵朵盛开的花，而你就是那一朵花。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《可爱的闷气包》">
+                <div class="content">
+                    <img class="img" src="./img/06.jpg" />
+                    <h2 class="content-title">心动</h2>
+                    <p class="content-desc">
+                        人生就是一场旅行，不在乎目的地，在乎的应该是沿途的风景以及看风景的心情。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《非常的调皮》">
+                <div class="content">
+                    <img class="img" src="./img/07.jpg" />
+                    <h2 class="content-title">活泼</h2>
+                    <p class="content-desc">
+                        原谅我将你的手机号码告诉了一个陌生人，他叫丘比特，我要他告诉你我心喜欢你，我心在乎你，我心等待你，我心只有你。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《向前，不断向前》">
+                <div class="content">
+                    <img class="img" src="./img/08.jpg" />
+                    <h2 class="content-title">自信</h2>
+                    <p class="content-desc">
+                        日子只能一天一天好好地过，别无他法。别烦恼明天的事，明天的烦恼让明天去烦吧。开心、努力、温柔待人地过完今天。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《静，另一种美》">
+                <div class="content">
+                    <img class="img" src="./img/09.jpeg" />
+                    <h2 class="content-title">文静</h2>
+                    <p class="content-desc">
+                        没有比人生更艰难的艺术了，因为其他的艺术或学问，到处都有老师。但是我们要在人生的逆境中学会勇敢,拼搏,快把精神那出来，不要向困难低头!
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《吴晶・傻妞的画像》">
+                <div class="content">
+                    <img class="img" src="./img/10.jpg" />
+                    <h2 class="content-title">笑</h2>
+                    <p class="content-desc">
+                        你知道思念一个人的滋味吗?就像是喝了一杯冰冷的水，又像一杯苦咖啡，然后用一辈子的时间化成热泪。
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div class="item" data-text="《舞！舞！舞！》">
+                <div class="content">
+                    <img class="img" src="./img/11.jpg" />
+                    <h2 class="content-title">歌唱</h2>
+                    <p class="content-desc">
+                        所有你曾经哭过的事，多少年之后，你一定会笑着说出来，然后骂自己一句：当初真的好傻，其实人生没有那么多的烦恼，时间会解决一切，傻妞要好好爱自己。  
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《你的喜悦，最美的太阳》">
+                <div class="content">
+                    <img class="img" src="./img/12.jpg" />
+                    <h2 class="content-title">喜悦</h2>
+                    <p class="content-desc">
+                        人一生的成就有些靠天分，有些靠运气，有些靠努力，而人所能掌握的仅仅只是自己的那一分深情与用心。
+                        但是，这一分深情与用心才是作为人生最重要的价值。
+                        至于成就，我们只能尽心而知命，毋须过分在意，更不需要急着在年轻的时候判断自己的天分与价值。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《萤火之森》">
+                <div class="content">
+                    <img class="img" src="./img/13.jpg" />
+                    <h2 class="content-title">天使</h2>
+                    <p class="content-desc">
+                        不敢说自己一生都会喜欢你，至少在能看见的岁月里，我只想对你一个人好，有你的陪伴才是最好的！
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《开心，可爱，活泼》">
+                <div class="content">
+                    <img class="img" src="./img/14.jpg" />
+                    <h2 class="content-title">比心</h2>
+                    <p class="content-desc">
+                        爱就一个字，我只说一次，用心一辈子爱你，是我始终不变的选择，你呢?我经常会想我们相爱的日子，很幸福，我想一直幸福下去。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《哭，伤心，难受》">
+                <div class="content">
+                    <img class="img" src="./img/15.jpg" />
+                    <h2 class="content-title">疼痛</h2>
+                    <p class="content-desc">
+                        忘了那些不快乐的事吧！连上帝都认为伤心和烦恼是不属于你的。努力让自己走出来，你会感到今天的太阳比昨天更温暖！今天的天空比昨天更蔚蓝！
+                        你还有我，我一直都在！
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《小样，看我拿捏你》">
+                <div class="content">
+                    <img class="img" src="./img/16.jpg" />
+                    <h2 class="content-title">看我</h2>
+                    <p class="content-desc">
+                        山外青山楼外楼，你不爱我我发愁。世上美女到处有，就是没有你温柔!
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《小公主》">
+                <div class="content">
+                    <img class="img" src="./img/17.jpg" />
+                    <h2 class="content-title">不要打我</h2>
+                    <p class="content-desc">
+                        好喜欢，这样的你，真实的你，自由自在的你，喜欢陪你出去玩，喜欢和你在一起，喜欢，很喜欢！
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《顶峰与自我》">
+                <div class="content">
+                    <img class="img" src="./img/18.jpg" />
+                    <h2 class="content-title">自由</h2>
+                    <p class="content-desc">
+                        “天空的幸福”是穿一身蓝，“森林的幸福”是披一身绿，“阳光的幸福”如钻石般璀璨，而我的幸福，是因为认识了你。只有你能带给我最大的快乐。
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《活力，我从你的眼睛看到了光》">
+                <div class="content">
+                    <img class="img" src="./img/19.jpg" />
+                    <h2 class="content-title">光</h2>
+                    <p class="content-desc">
+                        我发现你的眼睛是那样的深邃而清澈，令人怦然心动，你的眼睛很美，非常的好看，这是属于你的独一无二的美丽，不要嫌弃它，你不知不知道你的这双眼睛真的很美，美的让我心不在焉！
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《像一只青蛙》">
+                <div class="content">
+                    <img class="img" src="./img/20.jpg" />
+                    <h2 class="content-title">青蛙</h2>
+                    <p class="content-desc">
+                        我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！我爱你！
+                        <p style="color:brown;font-size:25px;">不许离开我!!!!!!!!!!!</p>
+                        <p style="color:brown;font-size:25px;">不许离开我!!!!!!!!!!!</p>
+                        <p style="color:brown;font-size:25px;">不许离开我!!!!!!!!!!!</p>
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《爱你！很爱你！深爱你！》">
+                <div class="content">
+                    <img class="img" src="./img/21.jpg" />
+                    <h2 class="content-title">我们</h2>
+                    <p class="content-desc">
+                        你想吃好吃的，我会毫不犹豫的穿衣服陪你去。
+                        你想吃辣条，我给你拿饮料，和你一起吃
+                        你想去逛街，牵着你的手，陪你买，陪你逛
+                        你累了，可以依靠，可以诉说，可以一起想办法
+                        有你的陪伴我觉得足够了
+                    </p>
+                </div>
+            </div>
+
+            <div class="item" data-text="《我的小公主，我的女神》">
+                <div class="content">
+                    <img class="img" src="./img/22.jpg" />
+                    <h2 class="content-title">老婆</h2>
+                    <p class="content-desc">
+                        <p style="color:brown;font-size:25px;">生日快乐！！！</p>
+                        祝我的宝贝，生日快乐，天天开心，越来越美，越来越可爱，我爱你，你永远是我的宝贝，我的女神！！！
+                        我不在你身边的时候要照顾好自己，请忍忍，我已经在快马加鞭的向你赶来，请你不要放弃，坚持住，坚持住，坚持住！
+                        等我，等我，等我！好不好！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"><a href="./shu/爱情树.html">吴晶，我爱你！</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        (function ($) {
+            $.fn.timeline = function () {
+                var selectors = {
+                    id: $(this),
+                    item: $(this).find(".item"),
+                    activeClass: "item--active",
+                    img: ".img"
+                };
+                // 将第一个时间轴项目激活，并设置时间轴背景图片为第一个项目的图片
+                selectors.item.eq(0).addClass(selectors.activeClass);
+                selectors.id.css(
+                    "background-image",
+                    "url(" +
+                    selectors.item
+                        .first()
+                        .find(selectors.img)
+                        .attr("src") +
+                    ")"
+                );
+                // 获取时间轴项目的总数
+                var itemLength = selectors.item.length;
+                // 当页面滚动时，触发滚动事件
+                $(window).scroll(function () {
+                    var max, min;
+                    // 获取页面滚动的距离
+                    var pos = $(this).scrollTop();
+                    selectors.item.each(function (i) {
+                        // 获取当前时间轴项目的最小和最大高度
+                        min = $(this).offset().top;
+                        max = $(this).height() + $(this).offset().top;
+                        var that = $(this);
+                        // 如果滚动到最后一个项目，并且超过了当前项目高度的一半，
+                        // 则将最后一个项目设置为激活状态，并设置背景图片为最后一个项目的图片
+                        if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+                            selectors.item.removeClass(selectors.activeClass);
+                            selectors.id.css(
+                                "background-image",
+                                "url(" +
+                                selectors.item
+                                    .last()
+                                    .find(selectors.img)
+                                    .attr("src") +
+                                ")"
+                            );
+                            selectors.item.last().addClass(selectors.activeClass);
+                        }
+                        // 如果当前滚动位置在当前项目的最小和最大高度之间，
+                        // 则将当前项目设置为激活状态，并设置背景图片为当前项目的图片
+                        else if (pos <= max - 10 && pos >= min) {
+                            selectors.id.css(
+                                "background-image",
+                                "url(" +
+                                $(this)
+                                    .find(selectors.img)
+                                    .attr("src") +
+                                ")"
+                            );
+                            selectors.item.removeClass(selectors.activeClass);
+                            $(this).addClass(selectors.activeClass);
+                        }
+                    });
+                });
+            };
+        })(jQuery)
+        $("#shell").timeline();
+    </script>
+</body>
+
+</html>
